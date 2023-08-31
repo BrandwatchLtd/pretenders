@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3
 
 WORKDIR /opt/pretenders
 ENV PYTHONPATH=/opt/pretenders
@@ -9,8 +9,9 @@ COPY requirements/ requirements/
 RUN apk --no-cache add \
         bash \
         python3 \
+        py3-pip \
     && \
-    pip3 install -r /opt/pretenders/requirements/runtime.txt
+    pip install -r /opt/pretenders/requirements/runtime.txt
 
 COPY pretenders/ pretenders/
 
